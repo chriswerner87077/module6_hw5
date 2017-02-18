@@ -16,24 +16,48 @@
 #include <stdio.h>		/* For Standard I/O */
 
 /* Function Prototypes */
+void MakeMilesKmTable(float mstart, float meend, float inc);
 
 /* Main Program */
 int main(void)
 {
+	//Declare variables. Used float so that you could have
+	//half miles or increment by values of 1/2
+	float mstart, mend, inc;
 	//Prompt user for the starting miles
+	printf("Enter the starting miles: ");
 	//Scan input for the starting miles
+	scanf("%f",&mstart);
 	//Prompt user for the ending miles
+	printf("Enter the ending miles: ");
 	//Scan input for the ending miles
+	scanf("%f",&mend);
 	//Prompt user for the increment values
+	printf("Enter the mile increments: ");
 	//Scan input for the increment values
+	scanf("%f",&inc);
 	//Print the header for the table
-	//Enter loop
-		//Print the mile
-		//Print the kilometer
+	printf("Miles  =  Kilometers\n");
+	//Call function to 
+	MakeMilesKmTable(mstart, mend, inc);
 	return 0;
 }
 
 
 /* Function Defenitions */
-
-
+void MakeMilesKmTable(float ms, float me, float i)
+	{
+	//Declare and initialize count value
+	float count = ms,kilos;
+	//Enter loop
+	while (count <=me)
+	{
+		kilos = count*1.61;
+		//Print the mile and then kilometer
+		//Used 4 positions and one decimal for the miles
+		//so you could increment by half miles
+		printf("%5.1f      %-5.2f\n",count,kilos);
+		count += i;
+	}
+	return;
+	}
